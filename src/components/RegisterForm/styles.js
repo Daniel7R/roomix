@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Form= styled.form`
@@ -10,7 +11,6 @@ export const Form= styled.form`
     justify-content: center;
     align-items: center;
     font-size: 4rem;
-    margin: 200px auto;
 `
 
 export const Div= styled.div`
@@ -89,6 +89,7 @@ export const Button= styled.button`
     transition: 1s all ease;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.8rem;
+    margin-top: 40px ;
     &:hover {
         width: 75%;
         background-color: #370fff;
@@ -96,3 +97,17 @@ export const Button= styled.button`
     }
 `
 
+export const Title= styled.h2`
+    text-align: center ;
+    color: #fff ;
+    font-size: 3rem ;
+`
+
+export const P= styled.p`
+    font-size: 1.6rem ;
+`
+
+export const Link= styled(NavLink)`
+    font-size: 1.6rem ;
+    color: #1eff00 ;
+`
