@@ -1,11 +1,11 @@
 const path= require("path");
 const htmlWebpackPlugin= require("html-webpack-plugin");
-const dotEnv = require("dotenv-webpack")
+const dotEnv = require("dotenv-webpack");
+const { webpack } = require("webpack");
+require("babel-polyfill")
 
 module.exports= {
-    entry: {
-        path: path.resolve(__dirname,"./src/index.js")
-    },
+    entry: ['babel-polyfill', './src/index.js'],
     output: {
         path: path.resolve(__dirname,"dist"),
         filename: "bundle.js"
@@ -20,7 +20,7 @@ module.exports= {
                     options: {
                         presets: [
                             "@babel/preset-env",
-                            "@babel/preset-react"
+                            "@babel/preset-react",
                         ]
                     }
                 }
@@ -47,7 +47,7 @@ module.exports= {
         new htmlWebpackPlugin({
             template: "./public/index.html"
         }),
-        new dotEnv()
+        new dotEnv(),
     ],
     devServer: {
         historyApiFallback: {

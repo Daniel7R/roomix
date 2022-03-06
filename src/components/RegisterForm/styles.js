@@ -111,3 +111,8 @@ export const Link= styled(NavLink)`
     font-size: 1.6rem ;
     color: #1eff00 ;
 `
+
+export const Error= styled.span`
+    font-size: 1.5rem ;
+    color:rgb(255,43,43) ;
+`
