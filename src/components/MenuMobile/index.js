@@ -14,7 +14,7 @@ export const MenuMobile = ()=> {
                     </Link> 
                 </ListItem>
                 <ListItem>
-                    <Link to="/favorites">
+                    <Link to="/favs">
                         <MdOutlineFavoriteBorder size={"32px"}/>
                     </Link>
                 </ListItem>
