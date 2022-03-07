@@ -10,4 +10,9 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
         color: #ffffff;
     }
+
+    #icon-notRegistered {
+        font-size: 90px;
+        color: unset;
+    }
 `
