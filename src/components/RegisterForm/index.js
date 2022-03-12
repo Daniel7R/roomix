@@ -1,12 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useContext } from "react";
 import { Form, Input, Div, Button, Title, P, Link, Error } from "./styles";
 import {MdOutlineAccountBox} from 'react-icons/md'
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Context } from "../../context/Context";
 
 export const RegisterForm= ({title}) => {
 
+    const {activeAuth}= useContext(Context)
     const[email,setEmail]= useState('')
     const[password,setPassword]= useState('')
     const [error, setError]= useState(null)
@@ -15,16 +17,17 @@ export const RegisterForm= ({title}) => {
     const signUp= (e)=> {
         e.preventDefault()
         createUserWithEmailAndPassword(auth,email,password)
-            .then(r => navigate("/"))   
+            .then(r => navigate("/")) 
+            .then(() => activeAuth())  
             .catch((e)=> {
                 if(e.code === "auth/invalid-email") {
                     setError("Correo no valido =(")
                 }
                 if(e.code === 'auth/weak-password') {
-                    setError('La Contraseña Debe Tener al Menos 6 Caracteres :(')
+                    setError('La contraseña debe tener al menos 6 caracteres :(')
                 }
                 if(e.code === 'auth/email-already-in-use') {
-                    setError('Este Correo ya se Encuentra en Uso')
+                    setError('Este correo ya se encuentra en uso')
                 }
                 console.log(e.code);
             })

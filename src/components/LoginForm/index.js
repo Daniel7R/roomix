@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {Form, Input,Button, Title} from '../RegisterForm/styles'
 import { MdOutlineAccountBox } from 'react-icons/md'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../context/Context";
 
 export const LoginForm= ({title}) => {
   
+  const {activeAuth}= useContext(Context)
   const [email,setEmail]= useState('')
   const [password,setPassword]= useState('')
   const [error, setError]= useState(null)
@@ -17,6 +19,7 @@ export const LoginForm= ({title}) => {
  
     signInWithEmailAndPassword(auth, email, password)
       .then( r => navigate('/') )
+      .then(() => activeAuth())
       .catch(e => {
         if(e.code === 'auth/user-not-found') {
           setError("Usuario no Encontrado :(")

@@ -29,7 +29,7 @@ export const Header = () => {
             <ListItem className='desktop-item'>
                 <Link to='/account'>
                     <VscAccount size={'20px'} />
-                    Mi Cuenta
+                    Cuenta
                 </Link>
             </ListItem>
         </MenuList>
