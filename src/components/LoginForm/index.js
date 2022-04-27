@@ -5,31 +5,47 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/Context";
+import Swal from "sweetalert2";
+
 
 export const LoginForm= ({title}) => {
   
   const {activeAuth}= useContext(Context)
   const [email,setEmail]= useState('')
   const [password,setPassword]= useState('')
-  const [error, setError]= useState(null)
   const navigate= useNavigate()
+
+  const Modal= (title,color)=> {
+    Swal.fire({
+      title:title,
+      background: 'rgb(28,30,33)',
+      color: color,
+      buttonsStyling: 'width: 50px',
+      timer: 3000
+    })
+  }
 
   const signUp = (e)=> {
     e.preventDefault()
  
     signInWithEmailAndPassword(auth, email, password)
-      .then( r => navigate('/') )
+      .then( r =>{
+        Modal("Inicio de sesión exitoso ╰(*°▽°*)╯",'#1eff00')
+        navigate('/')} )
       .then(() => activeAuth())
       .catch(e => {
         if(e.code === 'auth/user-not-found') {
-          setError("Usuario no Encontrado :(")
+          Modal("Usuario no encontrado ;-;", '#f27474')
         }
         if(e.code === 'auth/wrong-password') {
-          setError('Contraseña Equivocada :(')
+          Modal("Contraseña equivocada ;-;", '#f27474')
+        }
+        if(e.code === 'auth/invalid-email') {
+          Modal("Correo inválido (❁´◡`❁)", "#fe7474")
         }
 
         console.log(e.code);
-      })
+      })  
 
   }
 
@@ -39,7 +55,7 @@ export const LoginForm= ({title}) => {
       <MdOutlineAccountBox size={"80px"} />
       <Form autoComplete="off" onSubmit={signUp}>
         <Input
-          type="email"
+          type="text"
           placeholder="Digite su correo"
           id="new-email"
           name="email"
@@ -53,7 +69,6 @@ export const LoginForm= ({title}) => {
           placeholder="Digite su contraseña"
           onChange={e => setPassword(e.target.value) }
         />
-
         <Button>Iniciar Sesión</Button>
       </Form>
     </>
