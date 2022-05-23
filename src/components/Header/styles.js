@@ -9,6 +9,7 @@ export const Nav= styled.nav`
     right: 0;
     box-shadow: 0 0 15px #370FFF;
     margin-bottom: 200px;
+    z-index: 2;
 
     @media only screen and (max-width: 840px){
         .desktop-item {

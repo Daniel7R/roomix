@@ -19,4 +19,6 @@ export const GlobalStyle = createGlobalStyle`
     .swal2-icon.swal2-error {
     border-color: #f27474;
 }
+   
+
 `

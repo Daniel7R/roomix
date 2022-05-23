@@ -18,7 +18,7 @@ const Provider= ({children}) => {
         })
     }
     
-    const [getAuth, setAuth]= useState(auth === null)
+    const [getAuth, setAuth]= useState(auth !== null)
     
     const value= {
         getAuth,
