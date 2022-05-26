@@ -12,6 +12,7 @@ import { Context } from '../context/Context'
 import { NotFoundPage } from '../containers/NotFoundPage'
 import { Header } from '../components/Header';
 import { MenuMobile } from '../components/MenuMobile';
+import { CardQuery } from '../components/CardQuery';
 
 export const App = () => {
 
@@ -28,6 +29,7 @@ export const App = () => {
             <Route  exact path="/favs" element={ getAuth !== false ? <Favorites />: <NotRegisteredUser />} />            
             <Route exact path="/account" element={ getAuth !== false ? <Account /> : <NotRegisteredUser />} />
             <Route exact path="/registro" element={<Register />  } />
+            <Route exact path="/detail/:id" element={<CardQuery />} />
             <Route exact path="/login" element={ <Login /> } />
             <Route path="*" element={<NotFoundPage />} /> 
           </Routes>

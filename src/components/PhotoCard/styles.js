@@ -3,6 +3,8 @@ import {fadeIn} from "../../styles/animation"
 
 export const Article= styled.article`
     min-height: 200px;
+    max-width: 450px;
+    margin: 0 auto; 
 `
 
 export const ImgWrapper= styled.div`
@@ -14,7 +16,7 @@ export const ImgWrapper= styled.div`
     position: relative;
     width: 100%;
     text-decoration: none;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     text-align: -webkit-auto;
     background: transparent;

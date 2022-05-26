@@ -19,6 +19,7 @@ const Provider= ({children}) => {
     }
     
     const [getAuth, setAuth]= useState(auth !== null)
+    const [data, setData]= useState([])
     
     const value= {
         getAuth,
@@ -27,7 +28,9 @@ const Provider= ({children}) => {
         },
         removeAuth: () => {
             setAuth(false)
-        }
+        }, 
+        data,
+        setData
     }
 
     return(

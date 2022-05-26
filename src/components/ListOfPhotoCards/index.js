@@ -1,16 +1,23 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import { PhotoCard } from '../PhotoCard'
 import Test from '../../assets/test.jpg';
+import { Context } from '../../context/Context';
+import Db from '../../../api/db.json';
 
 export const ListOfPhotoCards= ({categoryId}) => {
     
-    const data= []
+    const {data, setData}= useContext(Context);
+
+    useEffect(() => {
+        console.log(Db.photos);
+        setData(Db.photos);
+    }, [])
 
     return(
         <ul>
             {
                 // data
-                [1,2,3,4,5].map((photo, i) => <li> <PhotoCard key={i} src={Test} {...photo} /> </li>)
+                data.map( photo => <li key={photo.id} > <PhotoCard src={photo.src} id={photo.id} {...photo} />  </li>)
             }
         </ul>
     )
