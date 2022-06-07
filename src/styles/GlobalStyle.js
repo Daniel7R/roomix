@@ -15,4 +15,10 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 90px;
         color: unset;
     }
+
+    .swal2-icon.swal2-error {
+    border-color: #f27474;
+}
+   
+
 `

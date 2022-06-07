@@ -105,11 +105,16 @@ export const Title= styled.h2`
 
 export const P= styled.p`
     font-size: 1.6rem ;
+    margin-top: -60px;
 `
 
 export const Link= styled(NavLink)`
     font-size: 1.6rem ;
-    color: #1eff00 ;
+    color: #1eff00;
+    background-color: rgb(153,152,150);
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-decoration: none;
 `
 
 export const Error= styled.span`
