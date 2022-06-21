@@ -12,6 +12,13 @@ jobs:
         run: |
           npm install --force
           npm run build
+        env: 
+          API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
+          AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
+          PROJECT_ID_FIREBASE: ${{ secrets.PROJECT_ID_FIREBASE }}
+          STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE}}
+          MESSAGING_SENDERID_FIREBASE: ${{ secrets.MESSAGING_SENDERID_FIREBASE }}
+          APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.9
         with:
