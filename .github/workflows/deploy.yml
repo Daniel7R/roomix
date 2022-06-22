@@ -14,9 +14,6 @@ jobs:
         with:
           node-version: 14.x
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          npm install --force
-          npm run build
         env: 
           API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
           AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
@@ -24,6 +21,10 @@ jobs:
           STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE}}
           MESSAGING_SENDERID_FIREBASE: ${{ secrets.MESSAGING_SENDERID_FIREBASE }}
           APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
+        run: |
+          npm install --force
+          npm run build
+          yarn run generate
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.9
         with:
