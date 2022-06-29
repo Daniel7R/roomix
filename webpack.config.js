@@ -7,7 +7,7 @@ require("babel-polyfill")
 module.exports= {
     entry: ['babel-polyfill', './src/index.js'],
     output: {
-        path: path.resolve(__dirname,"dist"),
+        path: path.resolve(__dirname,"./dist"),
         filename: "bundle.js"
     },
     module: {
