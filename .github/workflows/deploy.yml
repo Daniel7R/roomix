@@ -15,12 +15,12 @@ jobs:
           node-version: 14.x
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         env: 
-          API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
-          AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
-          PROJECT_ID_FIREBASE: ${{ secrets.PROJECT_ID_FIREBASE }}
-          STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE}}
-          MESSAGING_SENDERID_FIREBASE: ${{ secrets.MESSAGING_SENDERID_FIREBASE }}
-          APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
+          REACT_APP_API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
+          REACT_APP_AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
+          REACT_APP_PROJECT_ID_FIREBASE: ${{ secrets.PROJECT_ID_FIREBASE }}
+          REACT_APP_STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE}}
+          REACT_APP_MESSAGING_SENDERID_FIREBASE: ${{ secrets.MESSAGING_SENDERID_FIREBASE }}
+          REACT_APP_APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
         run: |
           npm install --force
           npm run build
